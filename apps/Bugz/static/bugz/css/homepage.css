@@ -1,0 +1,10 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.container{
+    height: 1000px;
+    width: 1400px;
+    background-color: rgb(43, 73, 172);
+}
