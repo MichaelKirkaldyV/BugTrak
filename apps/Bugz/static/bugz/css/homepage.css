@@ -6,5 +6,44 @@
 .container{
     height: 1000px;
     width: 1400px;
-    background-color: rgb(43, 73, 172);
+    background-color: #ff9e80;
+}
+
+.title {
+    color: white;
+    font-size: 45px;
+    padding: 20px;
+    display: inline-block;
+}
+
+nav {
+    background-image: linear-gradient(to bottom right, red, #ff9e80);
+    height: 20px;
+    padding: 20px;
+    display: inline-block;
+}
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.main-body {
+    background-image: linear-gradient(to bottom right, #012b3d, #0881b6);
+}
+
+.body-text {
+    display: inline-block;
+}
+
+.body-text h1, h2 {
+    color: white;
+}
+
+.main-image {
+    height: 300px;
+    width: 600px;
+    display: inline-block;
 }
