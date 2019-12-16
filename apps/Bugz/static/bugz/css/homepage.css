@@ -4,20 +4,26 @@
 }
 
 .container{
-    height: 1000px;
-    width: 1400px;
-    background-color: #ff9e80;
+    height: 100%;
+    width: 100%;
+}
+
+.header {
+    height: 65px;
+    width: 100%;
+    background-color: rgb(32, 31, 32);
 }
 
 .title {
     color: white;
-    font-size: 45px;
+    font-size: 25px;
     padding: 20px;
+    padding-left: 65px;;
     display: inline-block;
 }
 
 nav {
-    background-image: linear-gradient(to bottom right, red, #ff9e80);
+    margin-left: 1390px;
     height: 20px;
     padding: 20px;
     display: inline-block;
@@ -31,19 +37,45 @@ nav a {
 }
 
 .main-body {
-    background-image: linear-gradient(to bottom right, #012b3d, #0881b6);
+    background-image: url('../images/red-wallpaper.jpg');
+    height: 600px;
+    width: 100%;
 }
 
 .body-text {
-    display: inline-block;
+    text-align: center;
+    padding-top: 155px;
 }
 
 .body-text h1, h2 {
     color: white;
+    font-size: 70px;
+}
+
+button {
+    background-color: rgb(235, 199, 100);
+    height: 75px;
+    font-size: 15px;
+    border: none;
+    width: 200px;
+    border-radius: 55px;
+    cursor: pointer;
+    margin-top: 35px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    text-decoration: none;
 }
 
 .main-image {
     height: 300px;
     width: 600px;
     display: inline-block;
+}
+
+.footer {
+    color: white;
+    padding-top: 35px;;
+    text-align: center;
+    height: 50px;
+    width: 100%;
+    background-color: rgb(32, 31, 32);
 }
