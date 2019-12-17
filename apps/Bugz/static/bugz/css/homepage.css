@@ -9,9 +9,9 @@
 }
 
 .header {
-    height: 65px;
+    height: 70px;
     width: 100%;
-    background-color: rgb(32, 31, 32);
+    background-color: rgba(26, 24, 24, 0.4);
 }
 
 .title {
@@ -38,7 +38,8 @@ nav a {
 
 .main-body {
     background-image: url('../images/red-wallpaper.jpg');
-    height: 600px;
+    background-size: cover;
+    height: 800px;
     width: 100%;
 }
 
@@ -75,7 +76,7 @@ button {
     color: white;
     padding-top: 35px;;
     text-align: center;
-    height: 50px;
+    height: 45px;
     width: 100%;
-    background-color: rgb(32, 31, 32);
+    background-color: black;
 }
