@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from .models import *
 
 def homepage(request):
     return render(request, "Bugz/homepage.html")
