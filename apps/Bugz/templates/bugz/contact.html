@@ -11,14 +11,45 @@
                 <div class="header">
                     <h1 class="title">BugTrak</h1>
                         <nav>
-                        <a href="/login">Login</a>
-                        <a href="/contact">Contact</a>
-                        <a href="/about">About</a>
+                            <a href="/login">Login</a>
+                            <a href="/contact">Contact</a>
+                            <a href="/about">About</a>
                         </nav>
                 </div>    
+                <h1 class="c-header">Contact us! Let us know how we can help.</h1>
                 <div class="c-form">
-                    <form action="/process_inquery" method="POST"></form>
-                </div>            
+                    <form action="/process_inquery" method="POST">
+                        <div>
+                            <label class="name">Name</label>
+                            <input type="text" name="name">
+                        </div>
+                        <div>
+                            <label id="com-label">Company</label>
+                            <input type="text" name="company" class="company input-2">
+                        </div>
+                        <div>
+                            <label>Email</label>
+                            <input type="text name="email"">
+                        </div>
+                        <div>
+                            <label>Message</label>
+                            <textarea name="Message"></textarea>
+                        </div>
+                        <input type="submit" name="submit" id="sub-1">
+                        <input type="reset" name="reset" id="sub-2">
+                    </form>
+                </div> 
+                <div class="right-box">
+                    <div class="img"></div>
+                    <div class="info-box">
+                        <p>6734 technology Dr, 15th Floor</p>
+                        <p>Chicago IL, 60664</p>
+                        <p>1-888-3r45-5557</p>
+                        <p>sales@bugtrak.co</p>
+                        <p>facebook.com/bugtrak</p>
+                        <p>@Bugtrak</p>
+                    </div>   
+                </div>        
             </div>
             <div class="footer">
                 <p>Created by Michael Kirkaldy - 2019</p>

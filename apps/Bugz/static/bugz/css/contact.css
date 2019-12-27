@@ -1,0 +1,148 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+@font-face {
+    font-family: cosima;
+    src: url('../fonts/Cosima-DemoBold.otf');
+  }
+
+.container{
+    height: 100%;
+    width: 100%;
+}
+
+.header {
+    font-family: cosima;
+    height: 70px;
+    width: 100%;
+    background-color: rgba(26, 24, 24, 0.4);
+}
+
+.title {
+    color: white;
+    font-size: 25px;
+    padding: 20px;
+    padding-left: 65px;;
+    display: inline-block;
+}
+
+nav {
+    margin-left: 1390px;
+    height: 20px;
+    padding: 20px;
+    display: inline-block;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+/*------------------------------BODY---------------------------------*/
+.c-header {
+    color: white;
+    font-family: cosima;
+    margin-top: 75px;
+    margin-right: 629px;
+    font-size: 40px;
+}
+
+.main-body {
+    background-image: url('../images/red-wallpaper.jpg');
+    background-size: cover;
+    height: 900px;
+    width: 100%;
+    text-align: center;
+}
+
+.input-2 {
+    margin-right: 25px;
+}
+
+.c-form {
+    display: inline-block;
+    color: white;
+    font-family: cosima;
+    margin-top: 120px;
+    margin-right: 400px;
+    text-align: left;
+}
+.c-form label {
+    font-size: 17px;
+    margin-right: 29px;
+    vertical-align: top;
+}
+
+.c-form input {
+    height: 45px;
+    margin-bottom: 10px;
+    margin-left: 80px;
+    padding-right: 180px;
+}
+
+#com-label {
+    margin: 0;
+}  
+
+textarea {
+    height: 200px;
+    width: 485px;
+    margin-left: 57px;
+}
+
+.info-box {
+    display: inline-block;
+    color: white;
+    font-family: cosima;
+}
+
+.info-box p {
+    margin-bottom: 10px;
+    font-size: 19px;
+}
+
+.img {
+    background-image: url('../images/map.gif');
+    background-size: cover;
+    height: 300px;
+    width: 300px;
+    margin-bottom: 50px;
+    margin-left: 15px;
+}
+
+.right-box {
+    display: inline-block;
+}
+
+#sub-1, #sub-2 {
+    width: 100px;
+    margin-top: 20px;
+    margin-left: 152px;
+    margin-right: -118px;
+    color: white;
+    background-color: #ffcc01;
+    border: none;
+    font-family: cosima;
+    text-align: center;
+    padding-left: 20px;
+}
+
+#sub-2 {
+    background-color: #7f072d;
+}
+/*---------------------------------------FOOTER------------------------*/
+
+.footer {
+    font-family: cosima;
+    color: white;
+    padding-top: 35px;;
+    text-align: center;
+    height: 45px;
+    width: 100%;
+    background-color: black;
+}

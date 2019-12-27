@@ -12,3 +12,6 @@ def about(request):
 
 def login(request):
     return render(request, "Bugz/login.html")
+
+def process_inquery(request):
+    pass
