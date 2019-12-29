@@ -19,21 +19,48 @@
                 <h1 class="c-header">Contact us! Let us know how we can help.</h1>
                 <div class="c-form">
                     <form action="/process_inquery" method="POST">
-                        <div>
+                        {% csrf_token %}
+                        <div class="errors">
+                            {% if messages %}
+                                <ul>
+                                    <li {% if name in messages.tags %} {% endif %}>{{message}}</li>
+                                </ul>
+                            {% endif %}
                             <label class="name">Name</label>
                             <input type="text" name="name">
                         </div>
-                        <div>
+                        <div class="errors">
+                            {% if messages %}
+                                <ul>
+                                    {% for message in messages %}
+                                    <li {% if message == name %} {% endif %}>{{message}}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
                             <label id="com-label">Company</label>
                             <input type="text" name="company" class="company input-2">
                         </div>
-                        <div>
+                        <div class="errors">
+                            {% if messages %}
+                                <ul>
+                                    {% for message in messages %}
+                                    <li {% if message == email %} {% endif %}>{{message}}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
                             <label>Email</label>
-                            <input type="text name="email"">
+                            <input type="text" name="email">
                         </div>
-                        <div>
+                        <div class="errors">
+                            {% if messages %}
+                                <ul>
+                                    {% for message in messages %}
+                                    <li {% if message == company %} {% endif %}>{{message}}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
                             <label>Message</label>
-                            <textarea name="Message"></textarea>
+                            <textarea name="message"></textarea>
                         </div>
                         <input type="submit" name="submit" id="sub-1">
                         <input type="reset" name="reset" id="sub-2">

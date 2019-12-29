@@ -125,7 +125,7 @@ textarea {
     margin-left: 152px;
     margin-right: -118px;
     color: white;
-    background-color: #ffcc01;
+    background-color: #dd1737;
     border: none;
     font-family: cosima;
     text-align: center;
@@ -135,6 +135,14 @@ textarea {
 #sub-2 {
     background-color: #7f072d;
 }
+
+li {
+    margin-left: 180px;
+    margin-bottom: 8px;
+    color: black;
+    list-style: none;
+}
+
 /*---------------------------------------FOOTER------------------------*/
 
 .footer {
