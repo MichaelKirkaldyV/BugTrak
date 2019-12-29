@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'bugz/css/login.css' %}">
+</head>
+<body>
+     <div class="container">
+            <div class="main-body">
+                   <div class="header">
+                      <h1 class="title">BugTrak</h1>
+                           <nav>
+                           <a href="/login">Login</a>
+                             <a href="/contact">Contact</a>
+                             <a href="/about">About</a>
+                         </nav>
+                    </div>
+                    <div class="l-form">
+                        <form action="/login" method="post">
+                            <div>
+                                <label>Username</label>
+                                <input type="text" name="username" id="username">
+                            </div>
+                            <div>
+                                <label>Password</label>
+                                <input type="text" name="password" id="password">
+                            </div>
+                            <input type="submit" name="Sign In">
+                            <p>or <a href="/register">sign up</a>now and get started!</p>
+                        </form>
+                    </div>
+             </div>
+            <div class="footer">
+                 <p>Created by Michael Kirkaldy - 2019</p>
+            </div>
+     </div>
+</body>
+</html>

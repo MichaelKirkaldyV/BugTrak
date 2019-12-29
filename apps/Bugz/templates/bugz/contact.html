@@ -23,7 +23,9 @@
                         <div class="errors">
                             {% if messages %}
                                 <ul>
-                                    <li {% if name in messages.tags %} {% endif %}>{{message}}</li>
+                                    {% if message == "name" %}
+                                        <li>{{message}}</li>
+                                    {% endif %}
                                 </ul>
                             {% endif %}
                             <label class="name">Name</label>
