@@ -22,7 +22,7 @@ class UserManager(models.Manager):
 	def validate_user(request, postData):
 		errors = {}
 
-		if len(postData['email']) < 3:
+		if len(postData['u_email']) < 3:
 			errors['email'] = "Email must be longer than 3 characters"
 
 		if len(postData['username']) < 4:
@@ -42,9 +42,12 @@ class Query(models.Model):
 	company = models.CharField(max_length=30)
 	email = models.CharField(max_length=30)
 	message = models.CharField(max_length=150)
+	# Inherits the Query Manager
 	objects = QueryManager()
 
 class User(models.Model):
-	email = models.CharField(max_length=20)
+	u_email = models.CharField(max_length=20)
 	username = models.CharField(max_length=20)
 	password = models.CharField(max_length=20)
+	# Inherits the User Manager
+	objects = UserManager()
