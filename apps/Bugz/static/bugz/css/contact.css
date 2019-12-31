@@ -143,6 +143,24 @@ li {
     list-style: none;
 }
 
+ul.messages {
+    position: absolute;
+    margin-left: 360px;
+}
+
+ul li + li + li + li {
+    margin-top: 39px;
+    margin-left: 292px;
+}
+
+ul li + li + li {
+    margin-top: -87px;
+    position: absolute;
+}
+
+ul li + li {
+    margin-top: 97px;
+}
 /*---------------------------------------FOOTER------------------------*/
 
 .footer {
