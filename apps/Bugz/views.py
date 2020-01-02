@@ -41,7 +41,9 @@ def process_inquery(request):
         return redirect('/contact')
 
 def register(request):
-    print("!!!!!!!!!!!!!", request.POST)
+    return render(request, "Bugz/register.html")
+
+def register_process(request):
     # Sets errors to dictionary in validation_user in models.py
     errors = User.objects.validate_user(request.POST)
 
@@ -53,7 +55,7 @@ def register(request):
 
     else:
         # Creates a User and saves to database.
-        u_email = request.POST['email']
+        u_email = request.POST['u_email']
         username = request.POST['username']
         password = request.POST['password']
 

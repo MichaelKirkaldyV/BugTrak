@@ -60,6 +60,18 @@ nav a {
     width: 100%;
     text-align: center;
 }
+
+.r-form {
+    height: 300px;
+    width: 400px;
+    margin: auto;
+    background-color: green;
+    margin-top: 200px;
+}
+
+form label {
+    text-align: left;
+}
 /*---------------------------------------FOOTER------------------------*/
 
 .footer {

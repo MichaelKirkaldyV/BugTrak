@@ -3,7 +3,7 @@
     <head>
         <title>Register</title>
         {% load static %}
-        <link rel="stylesheet" type="text/css" href="{% static 'bugz/css/resgister.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'bugz/css/register.css' %}">
     </head>
     <body>
         <div class="container">
@@ -16,7 +16,7 @@
                             <a href="/about">About</a>
                         </nav>
                 </div>  
-                <div>
+                <div class="r-form">
                     <form action="/register" method="POST">
                         {% csrf_token %}
                         <div>
