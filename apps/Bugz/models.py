@@ -23,7 +23,7 @@ class UserManager(models.Manager):
 		errors = {}
 
 		if len(postData['u_email']) < 3:
-			errors['email'] = "Email must be longer than 3 characters"
+			errors['u_email'] = "Email must be longer than 3 characters"
 
 		if len(postData['username']) < 4:
 			errors['username'] = "Username must be longer than 4 characters"

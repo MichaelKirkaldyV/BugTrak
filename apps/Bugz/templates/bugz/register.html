@@ -18,9 +18,10 @@
                 </div>  
                 <div>
                     <form action="/register" method="POST">
+                        {% csrf_token %}
                         <div>
                             <label>Email</label>
-                            <input type="text" name="u_email" id="email">
+                            <input type="text" name="u_email" id="u_email">
                         </div>
                         <div>
                             <label>Username</label>
@@ -34,7 +35,7 @@
                             <label>Confirm Password</label>
                             <input type="text" name="cnfrm_password" id="cnfrm_password">
                         </div>
-                        <input type="submit" name="Sign In" id="submit">
+                        <input type="submit" name="submit" id="submit">
                     </form>
                 </div>
             </div>  

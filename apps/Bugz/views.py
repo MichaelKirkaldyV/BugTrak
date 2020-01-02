@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from . models import *
+from .models import *
 from django.contrib import messages
 import bcrypt
 
@@ -41,6 +41,7 @@ def process_inquery(request):
         return redirect('/contact')
 
 def register(request):
+    print("!!!!!!!!!!!!!", request.POST)
     # Sets errors to dictionary in validation_user in models.py
     errors = User.objects.validate_user(request.POST)
 
