@@ -16,8 +16,17 @@
                             <a href="/about">About</a>
                         </nav>
                 </div>  
+                <div class="errors">
+                    {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                     </ul>
+                    {% endif %}
+                </div>  
                 <div class="r-form">
-                    <form action="/register" method="POST">
+                    <form action="/register_process" method="POST">
                         {% csrf_token %}
                         <div>
                             <label>Email</label>

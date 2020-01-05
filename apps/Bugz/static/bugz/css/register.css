@@ -62,16 +62,50 @@ nav a {
 }
 
 .r-form {
-    height: 300px;
+    height: 400px;
     width: 400px;
     margin: auto;
-    background-color: green;
     margin-top: 200px;
 }
 
-form label {
+.r-form label {
+    color: white;
+    font-family: cosima;
     text-align: left;
+    display: block;
+    margin-top: 20px;
 }
+
+.r-form input {
+    margin-right: 223px;
+    margin-top: 20px;
+    height: 45px;
+    width: 380px;
+}
+
+#submit {
+    color: white;
+    border: none;
+    background-color: #460e23;
+    width: 384px;
+}
+
+.errors {
+    color: #460e23;
+    position: absolute;
+    font-family: cosima;
+    top: 237px;
+    right: 430px;
+    
+}
+
+li {
+    list-style-type: none;
+    text-align: left;
+    margin-top: 85px;
+}
+
+
 /*---------------------------------------FOOTER------------------------*/
 
 .footer {

@@ -138,6 +138,25 @@ input {
     margin-left: 50px;
 }
 
+.reg {
+    margin-left: 140px;
+}
+
+.errors {
+    color: #460e23;
+    position: absolute;
+    font-family: cosima;
+    top: 610px;
+    right: 1053px;
+    
+}
+
+li {
+    list-style-type: none;
+    text-align: left;
+    margin-top: 85px;
+}
+
 
 /*---------------------------------------FOOTER------------------------*/
 

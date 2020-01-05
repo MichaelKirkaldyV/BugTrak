@@ -16,9 +16,18 @@
                              <a href="/about">About</a>
                          </nav>
                     </div>
+                    <div class="errors">
+                            {% if messages %}
+                            <ul class="messages">
+                                {% for message in messages %}
+                                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                                {% endfor %}
+                             </ul>
+                            {% endif %}
+                        </div>  
                     <div class="l-form">
                         <h1 class="sign-in">Sign In!</h1>
-                        <form action="/login" method="POST">
+                        <form action="/login_process" method="POST">
                             {% csrf_token %}
                             <div>
                                 <label>Username</label>
@@ -29,8 +38,8 @@
                                 <input type="text" name="password" id="password">
                             </div>
                             <input type="submit" name="Sign In" id="submit">
+                            <p class="reg">or <a href="/register">sign up</a> now and get started!</p>
                         </form>
-                        <p class="reg">or <a href="/register">sign up</a> now and get started!</p>
                     </div>
                     <div class="testimony">   
                             <p>It wasn’t until we switched to BugTrak that we finally were able to get our error tracking under control. 

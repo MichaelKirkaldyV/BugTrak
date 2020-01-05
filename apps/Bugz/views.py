@@ -51,7 +51,7 @@ def register_process(request):
     if len(errors):
         for tag, error in errors.items():
             messages.error(request, error)
-        return redirect('/contact')
+        return redirect('/register')
 
     else:
         # Creates a User and saves to database.
@@ -61,10 +61,43 @@ def register_process(request):
 
         # Uses bcyrpt to hash and salt the password entered and saves the hashed password in the database for security. 
         hashed_pw = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
-        User.objects.create(u_email = u_email, username = username, password = hashed_pw)
-
+        newU = User.objects.create(u_email = u_email, username = username, password = hashed_pw)
+        print(newU)
         # Gets the user entered by its username previously entered and sets its session id to the id given on creation.
         user = User.objects.get(username = username)
         request.session['id'] = user.id
         return redirect('/login')
 
+def login_process(request):
+    username = request.POST['username']
+    password = request.POST['password']
+
+    # Checks if user is in the database
+    user = User.objects.filter(username = username)
+
+    if len(user) > 0:
+        # Checks to see if the password entered matches the password in the database.
+        this_password = bcrypt.checkpw(password.encode(), user[0].password.encode())
+        if this_password:
+            request.session['id'] = user[0].id
+            print("You are logged in")
+            return redirect('/dashboard')
+        else:
+            messages.error(request, "Incorrect username/password combination")
+            return redirect('/login')
+    else:
+        messages.error(request, "Username and password required")
+        return redirect('/login')
+
+def logout(request):
+    request.session.clear()
+    return redirect('/login')
+
+def dashboard(request):
+    if not request.session:
+        return redirect('/login')
+    else:
+        context = {
+
+        }
+        return render(request, "Bugz/dashboard.html", context)
