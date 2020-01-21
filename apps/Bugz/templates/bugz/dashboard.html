@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Dashboard</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'bugz/css/dashboard.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <div class="main-body">
+                    <div class="header">
+                        <a href="/"><h1 class="title">BugTrak</h1></a>
+                            <nav>
+                                <a href="/contact">Contact</a>
+                                <a href="/about">About</a>
+                                <a href="/administration">Administration</a>
+                                <a href="/reports">Reports</a>
+                                <a href="/logout">Logout</a>
+                            </nav>
+                    </div>  
+                    <div class="options">
+                        <div class="opt"><a href="/add_project" class="link top">Add Project</a></div>
+                        <div class="opt"><a href="/project_report" class="link">Project Reports</a></div>
+                        <div class="opt"><a href="/add_bug" class="link">Add Bug</a></div>
+                        <div class="opt"><a href="/bug_report" class="link">Bug Reports</a></div>
+                        <div class="opt"><a href="/add_user" class="link">Add User</a></div>
+                        <div class="opt"><a href="/user_report" class="link">User Reports</a></div>
+                    </div>
+            </div>
+            <div class="footer">
+                <p>Created by Michael Kirkaldy - 2019</p>
+             </div>
+        </div>
+    </body>
+</html>

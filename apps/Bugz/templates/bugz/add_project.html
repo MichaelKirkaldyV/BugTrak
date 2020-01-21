@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Add a Project</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'bugz/css/add_project.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <div class="main-body">
+                    <div class="header">
+                        <a href="/"><h1 class="title">BugTrak</h1></a>
+                            <nav>
+                                <a href="/home">Login</a>
+                                <a href="/contact">Contact</a>
+                                <a href="/about">About</a>
+                                <a href="/dashboard">Dashboard</a>
+                                <a href="/administration">Administration</a>
+                                <a href="/reports">Reports</a>
+                                <a href="/logout">Logout</a>
+                            </nav>
+                    </div> 
+                    <h1 class="add-title">Add a Project</h1>
+                    <div class="pro-form">
+                        <form action="/add_project_process" method="POST">
+                            <div>
+                                <label>Title</label>
+                                <input type="text" name="title">
+                            </div>
+                            <div>
+                                <label>Type</label>
+                                <select name="typ">
+                                    <option value="Maintenance">Maintenance</option> 
+                                    <option value="Entertainment">Entertainment</option>
+                                    <option value="Retail">Retail</option>
+                                    <option value="Task-Management">Task Management</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label>Manager</label>
+                                <input type="text" name="manager">
+                            </div>
+                            <div>
+                                <label>Frontend</label>
+                                <input type="text" name="frontend">
+                            </div>
+                            <div>
+                                <label>Backend</label>
+                                <input type="text" name="backend">
+                            </div>
+                            <div>
+                                <label>Client</label>
+                                <input type="text" name="client">
+                            </div>
+                            <div>
+                                <label>Description</label>
+                                <textarea name="description" id="" cols="30" rows="10"></textarea>
+                            </div>
+                            <input type="submit" name="submit" id="">
+                        </form>
+                    </div>
+                </div>
+            <div class="footer">
+                <p>Created by Michael Kirkaldy - 2019</p>
+            </div>
+        </div>
+    </body>
+</html>

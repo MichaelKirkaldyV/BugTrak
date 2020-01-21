@@ -10,4 +10,15 @@ urlpatterns = [
     url(r'^register$', views.register),
     url(r'^register_process$', views.register_process),
     url(r'^login_process$', views.login_process),
+    url(r'^add_project$', views.add_project),
+    url(r'^dashboard$', views.dashboard),
+    url(r'^project_report$', views.project_report),
+    url(r'^add_bug$', views.add_bug),
+    url(r'^bug_report$', views.bug_report),
+    url(r'^add_user$', views.add_user),
+    url(r'^user_report$', views.user_report),
+    url(r'^add_project_process$', views.add_project_process),
+    url(r'^add_bug_process$', views.add_bug_process),
+    url(r'^add_user_process$', views.add_user_process),
+
 ]

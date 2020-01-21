@@ -30,7 +30,7 @@
 }
 
 nav {
-    margin-left: 1136px;
+    margin-left: 920px;
     height: 20px;
     padding: 20px;
     display: inline-block;
@@ -54,27 +54,26 @@ nav a {
     text-align: center;
 }
 
-.options {
-    text-align: center;
-    width: 900px;
-    margin: 0 auto;
-    margin-top: 85px;
-}
-
-.opt {
-    height: 55px;
-    width: 800px;
-    background-color: #460e23;
-    padding-top: 35px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 15px;
-}
-
-a.link {
-    color: white;
+.add-title {
     font-family: cosima;
-    text-decoration: none;
+    color: white;
+    margin-top: 20px;
+    text-align: left;
+    margin-left: 180px;
+}
+
+.pro-form {
+    width: 500px;
+    height: 700px;
+    margin-top: 65px;
+    margin-left: 180px;
+    background-color: white;
+    text-align: left;
+}
+
+.pro-form label {
+    font-family: cosima;
+    color: white;
 }
 /*---------------------------------------FOOTER------------------------*/
 

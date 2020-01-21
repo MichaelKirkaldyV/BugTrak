@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Add a Bug</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'bugz/css/add_user.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <div class="main-body">
+                    <div class="header">
+                        <a href="/"><h1 class="title">BugTrak</h1></a>
+                            <nav>
+                                <a href="/home">Login</a>
+                                <a href="/contact">Contact</a>
+                                <a href="/about">About</a>
+                                <a href="/dashboard">Dashboard</a>
+                                <a href="/administration">Administration</a>
+                                <a href="/reports">Reports</a>
+                                <a href="/logout">Logout</a>
+                            </nav>
+                    </div> 
+                    <h1>User Registration</h1>
+                    <div class=pro-form>
+                        <form action="/add_user_process" method="POST">
+                            <label>Name</label>
+                            <input type="text" name="name">
+                            <label>Email</label>
+                            <input type="text" name="u_email">
+                            <label>Username</label>
+                            <input type="text" name="username">
+                            <label>Password</label>
+                            <input type="text" name="password">
+                            <label>Mobile</label>
+                            <input type="text" name="mobile_no">
+                            <input type="submit" value="Save">
+                            <button name="reset"></button>
+                        </form>
+                    </div>
+                </div>
+            <div class="footer">
+                <p>Created by Michael Kirkaldy - 2019</p>
+            </div>
+        </div>
+    </body>
+</html>
