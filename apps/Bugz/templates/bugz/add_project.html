@@ -23,6 +23,7 @@
                     <h1 class="add-title">Add a Project</h1>
                     <div class="pro-form">
                         <form action="/add_project_process" method="POST">
+                            {% csrf_token %}
                             <div>
                                 <label>Title</label>
                                 <input type="text" name="title">
@@ -56,7 +57,7 @@
                                 <label>Description</label>
                                 <textarea name="description" id="" cols="30" rows="10"></textarea>
                             </div>
-                            <input type="submit" name="submit" id="">
+                            <input type="submit" name="submit" id="submit">
                         </form>
                     </div>
                 </div>

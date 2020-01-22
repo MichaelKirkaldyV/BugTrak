@@ -131,6 +131,7 @@ class Project(models.Model):
 	description = models.CharField(max_length=120)
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
+	objects = ProjectManager()
 
 class Bug(models.Model):
 	name = models.CharField(max_length=20)
@@ -145,4 +146,5 @@ class Bug(models.Model):
 	updated_at = models.DateTimeField(auto_now=True)
 	# Dynamic dropdown menu to choose which project it belongs too.
 	project = models.ForeignKey(Project, on_delete=models.CASCADE)
+	objects = BugManager()
 

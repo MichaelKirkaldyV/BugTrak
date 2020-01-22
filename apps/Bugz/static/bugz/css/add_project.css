@@ -67,13 +67,38 @@ nav a {
     height: 700px;
     margin-top: 65px;
     margin-left: 180px;
-    background-color: white;
     text-align: left;
+    margin: 0 auto;
 }
 
 .pro-form label {
     font-family: cosima;
+    font-size: 17px;
     color: white;
+    display: block;
+    margin-bottom: 7px;
+    margin-top: 23px;
+}
+
+.pro-form input{
+    height: 21px;
+    width: 330px;
+}
+
+textarea {
+    width: 330px;
+}
+
+select {
+    width: 330px;
+}
+
+#submit {
+    margin-top: 5px;
+    background-color: #460e23;
+    border: none;
+    color: white;
+    height: 40px;;
 }
 /*---------------------------------------FOOTER------------------------*/
 

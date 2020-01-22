@@ -126,7 +126,24 @@ def user_report(request):
     return render(request, "Bugz/user_report.html")
 
 def add_project_process(request):
-    pass
+    errors = Project.objects.validate_project(request.POST)
+
+    if len(errors):
+        for tag, error in errors.items():
+            messages.error(request, error)
+        return redirect('/add_project')
+    else:
+        title = request.POST['title']
+        typ = request.POST['typ']
+        manager = request.POST['manager']
+        backend = request.POST['backend']
+        frontend = request.POST['frontend']
+        client = request.POST['client']
+        description = request.POST['description']
+
+        project = Project.objects.create(title = title, typ = typ, manager = manager, backend = backend, frontend = frontend, client = client, description = description)
+        print("PROJECT CREATED", project)
+        return redirect('/dashboard')
 
 def add_bug_process(request):
     pass
