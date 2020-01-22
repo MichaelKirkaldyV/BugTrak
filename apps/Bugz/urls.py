@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^login$', views.login),
     url(r'^process_inquery$', views.process_inquery),
     url(r'^register$', views.register),
+    url(r'^logout$', views.logout),
     url(r'^register_process$', views.register_process),
     url(r'^login_process$', views.login_process),
     url(r'^add_project$', views.add_project),

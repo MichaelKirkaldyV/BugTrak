@@ -108,7 +108,7 @@ def add_project(request):
     if 'id' not in request.session:
         return redirect('/login')
     else:
-        return render(request, "Bugz/add_project.html")
+        return render(request, "Bugz/add_project.html", context)
 
 def project_report(request):
     return render(request, "Bugz/project_report.html")
