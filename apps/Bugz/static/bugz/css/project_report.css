@@ -54,6 +54,23 @@ nav a {
     text-align: center;
 }
 
+.pro-h1 {
+    color: white;
+    font-family: cosima;
+    margin-bottom: 50px;
+    margin-top: 70px;
+    margin-right: 1245px;
+    
+}
+
+.reports {
+    background-color: white;
+    height: 500px;
+    width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+}
 /*---------------------------------------FOOTER------------------------*/
 
 .footer {
