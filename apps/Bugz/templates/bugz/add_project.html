@@ -22,15 +22,23 @@
                     </div> 
                     <h1 class="add-title">Add a Project</h1>
                     <div class="pro-form">
+                        <div class="errors">
+                            {% if messages %}
+                            <ul class="messages">
+                                {% for message in messages %}
+                                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                                {% endfor %}
+                             </ul>
+                            {% endif %}
+                        </div> 
                         <form action="/add_project_process" method="POST">
-                            {% csrf_token %}
+                            {% csrf_token %} 
                             <div>
                                 <label>Title</label>
                                 <input type="text" name="title">
                             </div>
                             <div>
                                 <label>Type</label>
-                                
                                 <select name="typ">
                                     <option value="Maintenance">Maintenance</option> 
                                     <option value="Entertainment">Entertainment</option>

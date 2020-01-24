@@ -114,7 +114,15 @@ def project_report(request):
     return render(request, "Bugz/project_report.html")
 
 def add_bug(request):
-    return render(request, "Bugz/add_bug.html")
+    if 'id' not in request.session:
+        return redirect('/login')
+    else:
+        context = {
+            "users": User.objects.all(),
+            # Filter users who are staff!
+            "projects": Project.objects.all()
+        }
+        return render(request, "Bugz/add_bug.html", context)
 
 def bug_report(request):
     return render(request, "Bugz/bug_report.html")
@@ -146,7 +154,24 @@ def add_project_process(request):
         return redirect('/dashboard')
 
 def add_bug_process(request):
-    pass
+    errors = Bug.objects.validate_bug(request.POST)
+
+    if len(errors):
+        for tag, error in errors.items():
+            messages.error(request, error)
+        return redirect('/add_project')
+    else:
+        name = request.POST['name']
+        typ = request.POST['typ']
+        status = request.POST['status']
+        start_date = request.POST['start_date']
+        due_date = request.POST['due_date']
+        description = request.POST['description']
+        assigned_to = request.POST['assigned_to']
+        project = request.POST['project']
+        bug = Bug.objects.create(name = name, typ = typ, status = status, start_date = start_date, due_date = due_date, description = description, assigned_to = assigned_to, project = project)
+        print("BUG CREATED", bug)
+        return redirect('/dashboard')
 
 def add_user_process(request):
     pass

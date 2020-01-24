@@ -30,7 +30,7 @@
 }
 
 nav {
-    margin-left: 1390px;
+    margin-left: 920px;
     height: 20px;
     padding: 20px;
     display: inline-block;
@@ -54,6 +54,65 @@ nav a {
     text-align: center;
 }
 
+.add-title {
+    font-family: cosima;
+    color: white;
+    margin-top: 20px;
+    text-align: left;
+    margin-left: 180px;
+}
+
+.pro-form {
+    width: 500px;
+    height: 700px;
+    margin-top: 65px;
+    margin-left: 180px;
+    text-align: left;
+    margin: 0 auto;
+}
+
+.pro-form label {
+    font-family: cosima;
+    font-size: 17px;
+    color: white;
+    display: block;
+    margin-bottom: 7px;
+    margin-top: 23px;
+}
+
+.pro-form input{
+    height: 21px;
+    width: 330px;
+}
+
+textarea {
+    width: 330px;
+}
+
+select {
+    width: 330px;
+}
+
+#submit {
+    margin-top: 5px;
+    background-color: #460e23;
+    border: none;
+    color: white;
+    height: 40px;;
+}
+
+.errors {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    right: 400px;
+    top: 245px;
+}
+
+li {
+    font-family: cosima;
+    margin-top: 30px;
+}
 /*---------------------------------------FOOTER------------------------*/
 
 .footer {

@@ -20,32 +20,67 @@
                                 <a href="/logout">Logout</a>
                             </nav>
                     </div> 
-                    <h1>Add a New Bug</h1>
-                    <div class=pro-form>
+                    <h1 class="add-title">Add a New Bug</h1>
+                    <div class="pro-form">
+                        <div class="errors">
+                            {% if messages %}
+                            <ul class="messages">
+                                {% for message in messages %}
+                                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                                {% endfor %}
+                             </ul>
+                            {% endif %}
+                        </div> 
                         <form action="/add_bug_process" method="POST">
-                            <label>Name</label>
-                            <input type="text" name="name">
-                            <label>Type</label>
-                            <select name="typ">
-                                <option value="Bug">Bug</option> 
-                                <option value="New Functionality">New Functionality</option>
-                            </select>
-                            <label>Status</label>
-                            <select name="status">
-                                <option value="In Progress">In Progress</option>
-                                <option value="Pending">Pending</option>
-                                <option value="UAT Release">UAT Release</option>
-                            </select>
-                            <label>Start Date</label>
-                            <input type="text" name="start_date">
-                            <label>Due Date</label>
-                            <input type="text" name="due_date">
-                            <label>Assigned to</label>
-                            <input type="text" name="assigned_to">
-                            <label>Description</label>
-                            <textarea name="description" id="" cols="30" rows="10"></textarea>
-                            <input type="submit" value="Save">
-                            <button name="reset"></button>
+                            {% csrf_token %}
+                            <div>
+                                <label>Name</label>
+                                <input type="text" name="name">
+                            </div>
+                            <div>
+                                <label>Type</label>
+                                <select name="typ">
+                                    <option value="Bug">Bug</option> 
+                                    <option value="New Functionality">New Functionality</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label>Status</label>
+                                <select name="status">
+                                    <option value="In Progress">In Progress</option>
+                                    <option value="Pending">Pending</option>
+                                    <option value="UAT Release">UAT Release</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label>Start Date</label>
+                                <input type="text" name="start_date">
+                            </div>
+                            <div>
+                                <label>Due Date</label>
+                                <input type="text" name="due_date">
+                            </div>
+                            <div>
+                                <label>Assigned to</label>
+                                <select name="assigned_to">
+                                    {% for user in users %}
+                                    <option value="{{user.id}}">{{user.name}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div>
+                                <label>Project</label>
+                                <select name="project">
+                                    {% for project in projects %}
+                                    <option value="{{project.id}}">{{project.title}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div>
+                                <label>Description</label>
+                                <textarea name="description" id="" cols="30" rows="10"></textarea>
+                            </div>
+                            <input type="submit" value="Save" id="submit">
                         </form>
                     </div>
                 </div>

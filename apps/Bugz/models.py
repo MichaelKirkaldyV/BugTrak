@@ -43,11 +43,11 @@ class ProjectManager(models.Manager):
 		if len(postData['title']) < 4:
 			errors['title'] = "Title must be longer than 4 characters"
 
-		if postData['typ'] == None:
+		if len(postData['typ']) <= 0:
 			errors['type'] = "Please select a type"
 
-		if postData['manager'] == None:
-			errors['manager'] = "Please select a manager"
+		if len(postData['manager']) <= 0:
+			errors['manager'] = "Please enter the manager associated"
 
 		if len(postData['frontend']) < 3:
 			errors['frontend'] = "Frontend name must be longer than 4 characters"
@@ -67,19 +67,19 @@ class BugManager(models.Manager):
 	def validate_bug(request, postData):
 		errors = {}
 
-		if len(postData['title']) < 4:
+		if len(postData['name']) < 4:
 			errors['title'] = "Title must be longer than 4 characters"
 
-		if postData['project'] == None:
+		if len(postData['project']) <= 0:
 			errors['project'] = "Please select a project"
 
-		if postData['typ'] == None:
+		if len(postData['typ']) <= 0:
 			errors['type'] = "Please select a type"
 
-		if postData['assigned_to'] == None:
+		if len(postData['assigned_to']) <= 0:
 			errors['assigned_to'] = "Please select an assignment"
 		
-		if postData['status'] == None:
+		if len(postData['status']) <= 0:
 			errors['status'] = "Please select the status of the bug"
 
 		if len(postData['start_date']) < 4:
