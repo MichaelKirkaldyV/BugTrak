@@ -26,8 +26,12 @@
                     {% endif %}
                 </div>  
                 <div class="r-form">
-                    <form action="/register_process" method="POST">
+                    <form action="/register_admin_process" method="POST">
                         {% csrf_token %}
+                        <div>
+                            <label>Name</label>
+                            <input type="text" name="name">
+                        </div>
                         <div>
                             <label>Email</label>
                             <input type="text" name="u_email" id="u_email">

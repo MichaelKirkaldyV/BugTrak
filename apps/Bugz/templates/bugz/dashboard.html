@@ -19,6 +19,9 @@
                                 <a href="/logout">Logout</a>
                             </nav>
                     </div>  
+                    {% if user %}
+                    <h1 class="greeting">Welcome, {{user.name}}</h1>
+                    {% endif %}
                     <div class="options">
                         <div class="opt"><a href="/add_project" class="link top">Add Project</a></div>
                         <div class="opt"><a href="/project_report" class="link">Project Reports</a></div>

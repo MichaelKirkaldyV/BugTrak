@@ -65,7 +65,7 @@ nav a {
     height: 400px;
     width: 400px;
     margin: auto;
-    margin-top: 200px;
+    margin-top: 150px;
 }
 
 .r-form label {
@@ -94,9 +94,8 @@ nav a {
     color: #460e23;
     position: absolute;
     font-family: cosima;
-    top: 237px;
+    top: 180px;
     right: 430px;
-    
 }
 
 li {

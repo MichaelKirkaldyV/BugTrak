@@ -43,9 +43,9 @@ def process_inquery(request):
 def register(request):
     return render(request, "Bugz/register.html")
 
-def register_process(request):
+def register_admin_process(request):
     # Sets errors to dictionary in validation_user in models.py
-    errors = User.objects.validate_user(request.POST)
+    errors = User.objects.validate_admin_user(request.POST)
 
     # Checks to see if there are errors and passes them to the template.
     if len(errors):
@@ -55,6 +55,7 @@ def register_process(request):
 
     else:
         # Creates a User and saves to database.
+        name = request.POST['name']
         u_email = request.POST['u_email']
         username = request.POST['username']
         password = request.POST['password']
@@ -65,7 +66,7 @@ def register_process(request):
         # Uses bcyrpt to hash and salt the password entered and saves the hashed password in the database for security. 
         hashed_pw = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
         print("HASH!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", hashed_pw)
-        newU = User.objects.create(u_email = u_email, username = username, password = hashed_pw.decode('utf-8'), is_admin = is_admin)
+        newU = User.objects.create(name = name, u_email = u_email, username = username, password = hashed_pw.decode('utf-8'), is_admin = is_admin)
         print(newU)
         # Gets the user entered by its username previously entered and sets its session id to the id given on creation.
         user = User.objects.get(username = username)
@@ -102,7 +103,11 @@ def dashboard(request):
     if 'id' not in request.session:
         return redirect('/login')
     else:
-        return render(request, "Bugz/dashboard.html")
+        context = {
+            # Get returns one value - while filter returns multiple values
+            "user": User.objects.get(id = request.session['id'])
+        }
+        return render(request, "Bugz/dashboard.html", context)
 
 def add_project(request):
     if 'id' not in request.session:
@@ -118,8 +123,8 @@ def add_bug(request):
         return redirect('/login')
     else:
         context = {
-            "users": User.objects.all(),
             # Filter users who are staff!
+            "users": User.objects.filter(is_staff = True),
             "projects": Project.objects.all()
         }
         return render(request, "Bugz/add_bug.html", context)
@@ -159,7 +164,7 @@ def add_bug_process(request):
     if len(errors):
         for tag, error in errors.items():
             messages.error(request, error)
-        return redirect('/add_project')
+        return redirect('/add_bug')
     else:
         name = request.POST['name']
         typ = request.POST['typ']
@@ -174,4 +179,18 @@ def add_bug_process(request):
         return redirect('/dashboard')
 
 def add_user_process(request):
-    pass
+    errors = User.objects.validate_user(request.POST)
+
+    if len(errors):
+        for tag, error in errors.items():
+            messages.error(request, error)
+        return redirect('/add_user')
+    else:
+        
+        name = request.POST['name']
+        u_email = request.POST['u_email']
+        password = request.POST['password']
+        mobile_no = request.POST['mobile_no']
+        user = User.objects.create(name = name, u_email = u_email, password = password, mobile_no = mobile_no)
+        print("USER CREATED", user)
+        return redirect('/dashboard')

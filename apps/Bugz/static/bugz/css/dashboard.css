@@ -54,11 +54,17 @@ nav a {
     text-align: center;
 }
 
+.greeting {
+    font-family: cosima;
+    color: white;
+    margin-top: 50px;
+}
+
 .options {
     text-align: center;
     width: 900px;
     margin: 0 auto;
-    margin-top: 85px;
+    margin-top: 41px;
 }
 
 .opt {

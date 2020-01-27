@@ -11,7 +11,6 @@
                     <div class="header">
                         <a href="/"><h1 class="title">BugTrak</h1></a>
                             <nav>
-                                <a href="/home">Login</a>
                                 <a href="/contact">Contact</a>
                                 <a href="/about">About</a>
                                 <a href="/dashboard">Dashboard</a>
@@ -20,21 +19,47 @@
                                 <a href="/logout">Logout</a>
                             </nav>
                     </div> 
-                    <h1>User Registration</h1>
-                    <div class=pro-form>
+                    <h1 class="add-title">User Registration</h1>
+                    <div class="pro-form">
+                        <div class="errors">
+                            {% if messages %}
+                            <ul class="messages">
+                                {% for message in messages %}
+                                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                                {% endfor %}
+                             </ul>
+                            {% endif %}
+                        </div> 
                         <form action="/add_user_process" method="POST">
-                            <label>Name</label>
-                            <input type="text" name="name">
-                            <label>Email</label>
-                            <input type="text" name="u_email">
-                            <label>Username</label>
-                            <input type="text" name="username">
-                            <label>Password</label>
-                            <input type="text" name="password">
-                            <label>Mobile</label>
-                            <input type="text" name="mobile_no">
-                            <input type="submit" value="Save">
-                            <button name="reset"></button>
+                            {% csrf_token %}
+                            <div>
+                                <label>Name</label>
+                                <input type="text" name="name">
+                            </div>
+                            <div>
+                                <label>Email</label>
+                                <input type="text" name="u_email">
+                            </div>
+                            <div>
+
+                            </div>
+                            <div>
+                                <label>Username</label>
+                                <input type="text" name="username">
+                            </div>
+                            <div>
+                                <label>Password</label>
+                                <input type="text" name="password">
+                            </div>
+                            <div>
+                                <label>Confirm Password</label>
+                                <input type="text" name="cnfrm_password">
+                            </div>
+                            <div>
+                                <label>Mobile</label>
+                                <input type="text" name="mobile_no">
+                            </div>
+                            <input type="submit" value="Save" id="submit">
                         </form>
                     </div>
                 </div>
