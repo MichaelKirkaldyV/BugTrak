@@ -22,7 +22,12 @@ urlpatterns = [
     url(r'^add_bug_process$', views.add_bug_process),
     url(r'^add_user_process$', views.add_user_process),
     url(r'^edit_bug/(?P<id>\d+)$', views.edit_bug),
+    url(r'^edit_user/(?P<id>\d+)$', views.edit_user),
     url(r'^delete_bug/(?P<id>\d+)$', views.delete_bug),
+    url(r'^delete_user/(?P<id>\d+)$', views.delete_user),
+    url(r'^delete_project/(?P<id>\d+)$', views.delete_project),
     url(r'^update_bug_process/(?P<id>\d+)$', views.update_bug_process),
+    url(r'^update_user_process/(?P<id>\d+)$', views.update_user_process),
+    url(r'^update_project_process/(?P<id>\d+)$', views.update_project_process),
 
 ]

@@ -34,9 +34,10 @@
                         <form action="/update_bug_process/{{bug.id}}" method="POST">
                             {% endif %}
                             {% csrf_token %}
+                            {% if bug %}
                             <div>
                                 <label>Name</label>
-                                <input type="text" name="name">
+                                <input type="text" name="name" placeholder="{{bug.name}}">
                             </div>
                             <div>
                                 <label>Type</label>
@@ -55,17 +56,18 @@
                             </div>
                             <div>
                                 <label>Start Date</label>
-                                <input type="text" name="start_date">
+                                <input type="text" name="start_date" placeholder="{{bug.start_date}}">
                             </div>
                             <div>
                                 <label>Due Date</label>
-                                <input type="text" name="due_date">
+                                <input type="text" name="due_date" placeholder="{{bug.due_date}}">
+                                {% endif %}
                             </div>
                             <div>
                                 <label>Assigned to</label>
                                 <select name="assigned_to">
                                     {% for user in users %}
-                                    <option value="{{user.id}}">{{user.name}}</option>
+                                    <option value="{{user.id}}" placeholder="{{user.name}}">{{user.name}}</option>
                                     {% endfor %}
                                 </select>
                             </div>
@@ -73,13 +75,15 @@
                                 <label>Project</label>
                                 <select name="project">
                                     {% for project in projects %}
-                                    <option value="{{project.id}}">{{project.title}}</option>
+                                    <option value="{{project.id}}" placeholder="{{project.title}}">{{project.title}}</option>
                                     {% endfor %}
                                 </select>
                             </div>
                             <div>
+                                {% if bug %}
                                 <label>Description</label>
-                                <textarea name="description" id="" cols="30" rows="10" class="desc"></textarea>
+                                <textarea name="description" id="" cols="30" rows="10" class="desc" placeholder="{{bug.description}}"></textarea>
+                                {% endif %}
                             </div>
                             <input type="submit" value="Update" id="submit">
                         </form>

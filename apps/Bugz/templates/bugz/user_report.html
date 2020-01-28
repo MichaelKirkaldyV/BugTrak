@@ -41,7 +41,7 @@
                                     <td>{{user.username}}</td>
                                     <td>{{user.u_email}}</td>
                                     <td>{{user.mobile_no}}</td>
-                                    <td><a href="/edit_user">Edit</a> &nbsp; <a href="/delete_user">Delete</a></td>
+                                    <td><a href="/edit_user/{{user.id}}">Edit</a> &nbsp; <a href="/delete_user/{{user.id}}">Delete</a></td>
                                 </tr>
                                 {% endfor %}
                             </tbody>

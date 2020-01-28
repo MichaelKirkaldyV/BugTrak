@@ -198,7 +198,6 @@ def add_user_process(request):
             messages.error(request, error)
         return redirect('/add_user')
     else:
-        
         name = request.POST['name']
         u_email = request.POST['u_email']
         password = request.POST['password']
@@ -219,6 +218,15 @@ def edit_bug(request, id):
             "projects": Project.objects.all()
         }
         return render(request, "Bugz/edit_bug.html", context)
+
+def edit_user(request, id):
+    if 'id' not in request.session:
+        return redirect('/login')
+    else:
+        context = {
+           "user": User.objects.get(id = id)
+        }
+        return render(request, "Bugz/edit_user.html", context)
     
 
 def delete_bug(request, id):
@@ -226,15 +234,67 @@ def delete_bug(request, id):
     bug.delete()
     return redirect('/bug_report')
 
-def update_bug_process(request, id):
-    name = request.POST['name']
-    typ = request.POST['typ']
-    status = request.POST['status']
-    start_date = request.POST['start_date']
-    due_date = request.POST['due_date']
-    description = request.POST['description']
-    project = Project.objects.get(id = request.POST['project'])
-    user = User.objects.get(id = request.POST['assigned_to'])
+def delete_user(request, id):
+    user = User.objects.get(id = id)
+    user.delete()
+    return redirect('/user_report')
 
-    bug = Bug.objects.filter(id = id).update(name = name, typ = typ, status = status, start_date = start_date, due_date = due_date, description = description, assigned_to = user, project = project)
-    return redirect('/bug_report')
+def delete_project(request, id):
+    project = Project.objects.get(id = id)
+    project.delete()
+    return redirect('/project_report')
+
+def update_project_process(request, id):
+    errors = Project.objects.validate_project(request.POST)
+
+    if len(errors):
+        for tag, error in errors.items():
+            messages.error(request, error)
+        return redirect('/add_project')
+    else:
+        title = request.POST['title']
+        typ = request.POST['typ']
+        manager = request.POST['manager']
+        backend = request.POST['backend']
+        frontend = request.POST['frontend']
+        client = request.POST['client']
+        description = request.POST['description']
+
+        Project.objects.filter(id = id).update(title = title, typ = typ, manager = manager, backend = backend, frontend = frontend, client = client, description = description)
+        return redirect('/project_report')
+
+def update_user_process(request, id):
+    errors = User.objects.validate_user(request.POST)
+
+    if len(errors):
+        for tag, error in errors.items():
+            messages.error(request, error)
+        return redirect('/edit_user/' + id)
+    else:
+        name = request.POST['name']
+        u_email = request.POST['u_email']
+        password = request.POST['password']
+        mobile_no = request.POST['mobile_no']
+
+        User.objects.filter(id = id).update(name = name, u_email = u_email, password = password, mobile_no = mobile_no)
+        return redirect('/user_report')
+
+def update_bug_process(request, id):
+    errors = Bug.objects.validate_bug(request.POST)
+
+    if len(errors):
+        for tag, error in errors.items():
+            messages.error(request, error)
+        return redirect('/edit_bug/' + id)
+    else:
+        name = request.POST['name']
+        typ = request.POST['typ']
+        status = request.POST['status']
+        start_date = request.POST['start_date']
+        due_date = request.POST['due_date']
+        description = request.POST['description']
+        project = Project.objects.get(id = request.POST['project'])
+        user = User.objects.get(id = request.POST['assigned_to'])
+
+        Bug.objects.filter(id = id).update(name = name, typ = typ, status = status, start_date = start_date, due_date = due_date, description = description, assigned_to = user, project = project)
+        return redirect('/bug_report')
