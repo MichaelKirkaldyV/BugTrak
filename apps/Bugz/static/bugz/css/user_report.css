@@ -71,6 +71,30 @@ nav a {
     margin-right: auto;
     border-radius: 10px;
 }
+
+th {
+    padding-left: 15px;
+    background-color: gray;
+    color: white;
+    text-align: left;
+    width: 180px;
+    height: 50px;
+}
+
+table {
+    margin: auto;
+    padding-top: 50px;
+}
+
+table, th, td {
+    border: 4px white;
+}
+
+.entries {
+    height: 50px;
+    font-family: cosima;
+}
+
 /*---------------------------------------FOOTER------------------------*/
 
 .footer {

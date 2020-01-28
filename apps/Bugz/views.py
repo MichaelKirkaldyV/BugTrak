@@ -130,13 +130,25 @@ def add_bug(request):
         return render(request, "Bugz/add_bug.html", context)
 
 def bug_report(request):
-    return render(request, "Bugz/bug_report.html")
+    if 'id' not in request.session:
+        return redirect('/login')
+    else:
+        context = {
+            "bugs": Bug.objects.all()
+        }
+    return render(request, "Bugz/bug_report.html", context)
 
 def add_user(request):
     return render(request, "Bugz/add_user.html")
 
 def user_report(request):
-    return render(request, "Bugz/user_report.html")
+    if 'id' not in request.session:
+        return redirect('/login')
+    else:
+        context = {
+            "users": User.objects.all()
+        }
+        return render(request, "Bugz/user_report.html", context)
 
 def add_project_process(request):
     errors = Project.objects.validate_project(request.POST)
@@ -172,10 +184,10 @@ def add_bug_process(request):
         start_date = request.POST['start_date']
         due_date = request.POST['due_date']
         description = request.POST['description']
-        assigned_to = request.POST['assigned_to']
-        project = request.POST['project']
-        bug = Bug.objects.create(name = name, typ = typ, status = status, start_date = start_date, due_date = due_date, description = description, assigned_to = assigned_to, project = project)
-        print("BUG CREATED", bug)
+        project = Project.objects.get(id = request.POST['project'])
+        user = User.objects.get(id = request.POST['assigned_to'])
+        bug = Bug.objects.create(name = name, typ = typ, status = status, start_date = start_date, due_date = due_date, description = description, assigned_to = user, project = project)       
+        print("BUG CREATED", bug.name, bug.assigned_to)
         return redirect('/dashboard')
 
 def add_user_process(request):

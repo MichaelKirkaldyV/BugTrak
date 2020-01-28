@@ -3,7 +3,7 @@
     <head>
         <title>User Reports</title>
         {% load static %}
-        <link rel="stylesheet" type="text/css" href="{% static 'bugz/css/project_report.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'bugz/css/user_report.css' %}">
     </head>
     <body>
         <div class="container">
@@ -22,7 +22,30 @@
                     </div> 
                     <h1 class="pro-h1">User Reports</h1>
                     <div class="reports">
-
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                    <th>Mobile No.</th>
+                                    <th>Options</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for user in users %}
+                                <tr class="entries">
+                                    <td>{{user.id}}</td>
+                                    <td>{{user.name}}</td>
+                                    <td>{{user.username}}</td>
+                                    <td>{{user.u_email}}</td>
+                                    <td>{{user.mobile_no}}</td>
+                                    <td><a href="/edit_user">Edit</a> &nbsp; <a href="/delete_user">Delete</a></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             <div class="footer">

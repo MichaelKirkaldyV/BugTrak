@@ -167,10 +167,10 @@ class Bug(models.Model):
 	due_date = models.CharField(max_length=20)
 	description = models.CharField(max_length=120)
 	# Dynamic dropdown menu to choose which user a bug is assigned too
-	assigned_to = models.ForeignKey(User, max_length=20, on_delete=models.CASCADE)
+	assigned_to = models.ForeignKey(User, max_length=20, on_delete=models.CASCADE, null=True)
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
 	# Dynamic dropdown menu to choose which project it belongs too.
-	project = models.ForeignKey(Project, on_delete=models.CASCADE)
+	project = models.ForeignKey(Project, on_delete=models.CASCADE, null=True)
 	objects = BugManager()
 

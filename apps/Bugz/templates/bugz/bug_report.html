@@ -3,7 +3,7 @@
     <head>
         <title>Bug Reports</title>
         {% load static %}
-        <link rel="stylesheet" type="text/css" href="{% static 'bugz/css/project_report.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'bugz/css/bug_report.css' %}">
     </head>
     <body>
         <div class="container">
@@ -22,7 +22,33 @@
                     </div> 
                     <h1 class="pro-h1">Bug Reports</h1>
                     <div class="reports">
-
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Status</th>
+                                    <th>Start Date</th>
+                                    <th>Due Date</th>
+                                    <th>Assigned To</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for bug in bugs %}
+                                <tr class="entries">
+                                    <td>{{bug.id}}</td>
+                                    <td>{{bug.name}}</td>
+                                    <td>{{bug.typ}}</td>
+                                    <td>{{bug.status}}</td>
+                                    <td>{{bug.start_date}}</td>
+                                    <td>{{bug.due_date}}</td>
+                                    <td>{{bug.assigned_to.name}}</td>
+                                    <td><a href="/edit_user">Edit</a> &nbsp; <a href="/delete_user">Delete</a></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             <div class="footer">
