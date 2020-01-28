@@ -206,3 +206,35 @@ def add_user_process(request):
         user = User.objects.create(name = name, u_email = u_email, password = password, mobile_no = mobile_no)
         print("USER CREATED", user)
         return redirect('/dashboard')
+
+def edit_bug(request, id):
+    if 'id' not in request.session:
+        return redirect('/login')
+    else:
+        context = {
+           "bug": Bug.objects.get(id = id),
+            # Filter users who are staff!
+            "users": User.objects.all(),
+            # Shows projects from db with dropdown in template.
+            "projects": Project.objects.all()
+        }
+        return render(request, "Bugz/edit_bug.html", context)
+    
+
+def delete_bug(request, id):
+    bug = Bug.objects.get(id = id)
+    bug.delete()
+    return redirect('/bug_report')
+
+def update_bug_process(request, id):
+    name = request.POST['name']
+    typ = request.POST['typ']
+    status = request.POST['status']
+    start_date = request.POST['start_date']
+    due_date = request.POST['due_date']
+    description = request.POST['description']
+    project = Project.objects.get(id = request.POST['project'])
+    user = User.objects.get(id = request.POST['assigned_to'])
+
+    bug = Bug.objects.filter(id = id).update(name = name, typ = typ, status = status, start_date = start_date, due_date = due_date, description = description, assigned_to = user, project = project)
+    return redirect('/bug_report')

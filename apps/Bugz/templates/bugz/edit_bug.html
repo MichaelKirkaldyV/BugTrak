@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Edit a Bug</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'bugz/css/edit_bug.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <div class="main-body">
+                    <div class="header">
+                        <a href="/"><h1 class="title">BugTrak</h1></a>
+                            <nav>
+                                <a href="/contact">Contact</a>
+                                <a href="/about">About</a>
+                                <a href="/dashboard">Dashboard</a>
+                                <a href="/administration">Administration</a>
+                                <a href="/reports">Reports</a>
+                                <a href="/logout">Logout</a>
+                            </nav>
+                    </div> 
+                    <h1 class="add-title">Update Bug</h1>
+                    <div class="pro-form">
+                        <div class="errors">
+                            {% if messages %}
+                            <ul class="messages">
+                                {% for message in messages %}
+                                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                                {% endfor %}
+                             </ul>
+                            {% endif %}
+                        </div> 
+                        {% if bug %}
+                        <form action="/update_bug_process/{{bug.id}}" method="POST">
+                            {% endif %}
+                            {% csrf_token %}
+                            <div>
+                                <label>Name</label>
+                                <input type="text" name="name">
+                            </div>
+                            <div>
+                                <label>Type</label>
+                                <select name="typ">
+                                    <option value="Bug">Bug</option> 
+                                    <option value="New Functionality">New Functionality</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label>Status</label>
+                                <select name="status">
+                                    <option value="In Progress">In Progress</option>
+                                    <option value="Pending">Pending</option>
+                                    <option value="UAT Release">UAT Release</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label>Start Date</label>
+                                <input type="text" name="start_date">
+                            </div>
+                            <div>
+                                <label>Due Date</label>
+                                <input type="text" name="due_date">
+                            </div>
+                            <div>
+                                <label>Assigned to</label>
+                                <select name="assigned_to">
+                                    {% for user in users %}
+                                    <option value="{{user.id}}">{{user.name}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div>
+                                <label>Project</label>
+                                <select name="project">
+                                    {% for project in projects %}
+                                    <option value="{{project.id}}">{{project.title}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div>
+                                <label>Description</label>
+                                <textarea name="description" id="" cols="30" rows="10" class="desc"></textarea>
+                            </div>
+                            <input type="submit" value="Update" id="submit">
+                        </form>
+                    </div>
+                </div>
+            <div class="footer">
+                <p>Created by Michael Kirkaldy - 2019</p>
+            </div>
+        </div>
+    </body>
+</html>
