@@ -22,7 +22,34 @@
                     </div> 
                     <h1 class="pro-h1">Project Reports</h1>
                     <div class="reports">
-
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Title</th>
+                                    <th>Type</th>
+                                    <th>Manager</th>
+                                    <th>Frontend</th>
+                                    <th>Backend</th>
+                                    <th>Client</th>
+                                    <th>Options</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for project in projects %}
+                                <tr class="entries">
+                                    <td>{{project.id}}</td>
+                                    <td>{{project.title}}</td>
+                                    <td>{{project.typ}}</td>
+                                    <td>{{project.manager}}</td>
+                                    <td>{{project.frontend}}</td>
+                                    <td>{{project.backend}}</td>
+                                    <td>{{project.client}}</td>
+                                    <td><a href="/edit_project/{{project.id}}">Edit</a> &nbsp; <a href="/delete_project/{{project.id}}">Delete</a></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             <div class="footer">

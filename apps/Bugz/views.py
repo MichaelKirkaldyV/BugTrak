@@ -116,7 +116,10 @@ def add_project(request):
         return render(request, "Bugz/add_project.html")
 
 def project_report(request):
-    return render(request, "Bugz/project_report.html")
+    context = {
+        "projects": Project.objects.all()
+    }
+    return render(request, "Bugz/project_report.html", context)
 
 def add_bug(request):
     if 'id' not in request.session:
@@ -158,13 +161,13 @@ def add_project_process(request):
             messages.error(request, error)
         return redirect('/add_project')
     else:
-        title = request.POST['title']
-        typ = request.POST['typ']
-        manager = request.POST['manager']
-        backend = request.POST['backend']
-        frontend = request.POST['frontend']
-        client = request.POST['client']
-        description = request.POST['description']
+        title = request.POST['title'].capitalize()
+        typ = request.POST['typ'].capitalize()
+        manager = request.POST['manager'].capitalize()
+        backend = request.POST['backend'].capitalize()
+        frontend = request.POST['frontend'].capitalize()
+        client = request.POST['client'].capitalize()
+        description = request.POST['description'].capitalize()
 
         project = Project.objects.create(title = title, typ = typ, manager = manager, backend = backend, frontend = frontend, client = client, description = description)
         print("PROJECT CREATED", project)
@@ -178,12 +181,12 @@ def add_bug_process(request):
             messages.error(request, error)
         return redirect('/add_bug')
     else:
-        name = request.POST['name']
-        typ = request.POST['typ']
-        status = request.POST['status']
-        start_date = request.POST['start_date']
-        due_date = request.POST['due_date']
-        description = request.POST['description']
+        name = request.POST['name'].capitalize()
+        typ = request.POST['typ'].capitalize()
+        status = request.POST['status'].capitalize()
+        start_date = request.POST['start_date'].capitalize()
+        due_date = request.POST['due_date'].capitalize()
+        description = request.POST['description'].capitalize()
         project = Project.objects.get(id = request.POST['project'])
         user = User.objects.get(id = request.POST['assigned_to'])
         bug = Bug.objects.create(name = name, typ = typ, status = status, start_date = start_date, due_date = due_date, description = description, assigned_to = user, project = project)       
@@ -198,10 +201,10 @@ def add_user_process(request):
             messages.error(request, error)
         return redirect('/add_user')
     else:
-        name = request.POST['name']
-        u_email = request.POST['u_email']
-        password = request.POST['password']
-        mobile_no = request.POST['mobile_no']
+        name = request.POST['name'].capitalize()
+        u_email = request.POST['u_email'].capitalize()
+        password = request.POST['password'].capitalize()
+        mobile_no = request.POST['mobile_no'].capitalize()
         user = User.objects.create(name = name, u_email = u_email, password = password, mobile_no = mobile_no)
         print("USER CREATED", user)
         return redirect('/dashboard')
@@ -212,12 +215,22 @@ def edit_bug(request, id):
     else:
         context = {
            "bug": Bug.objects.get(id = id),
-            # Filter users who are staff!
+            # Shows staff in fields.
             "users": User.objects.all(),
             # Shows projects from db with dropdown in template.
             "projects": Project.objects.all()
         }
         return render(request, "Bugz/edit_bug.html", context)
+
+def edit_project(request, id):
+    if 'id' not in request.session:
+        return redirect('/login')
+    else:
+        context = {
+            "project": Project.objects.get(id = id)
+        }
+        return render(request, "Bugz/edit_project.html", context)
+
 
 def edit_user(request, id):
     if 'id' not in request.session:

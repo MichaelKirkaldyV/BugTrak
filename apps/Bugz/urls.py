@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^add_user_process$', views.add_user_process),
     url(r'^edit_bug/(?P<id>\d+)$', views.edit_bug),
     url(r'^edit_user/(?P<id>\d+)$', views.edit_user),
+    url(r'^edit_project/(?P<id>\d+)$', views.edit_project),
     url(r'^delete_bug/(?P<id>\d+)$', views.delete_bug),
     url(r'^delete_user/(?P<id>\d+)$', views.delete_user),
     url(r'^delete_project/(?P<id>\d+)$', views.delete_project),
