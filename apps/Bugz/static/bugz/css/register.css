@@ -30,7 +30,7 @@
 }
 
 nav {
-    margin-left: 1390px;
+    margin-left: 1310px;
     height: 20px;
     padding: 20px;
     display: inline-block;
@@ -104,6 +104,13 @@ li {
     margin-top: 85px;
 }
 
+#submit {
+    cursor: pointer;
+}
+
+.newColor {
+    color: #ebc764;
+}
 
 /*---------------------------------------FOOTER------------------------*/
 

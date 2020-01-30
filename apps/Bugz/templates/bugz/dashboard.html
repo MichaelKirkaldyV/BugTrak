@@ -5,6 +5,7 @@
         <title>Dashboard</title>
         {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static 'bugz/css/dashboard.css' %}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
     <body>
         <div class="container">
@@ -12,23 +13,33 @@
                     <div class="header">
                         <a href="/"><h1 class="title">BugTrak</h1></a>
                             <nav>
-                                <a href="/contact">Contact</a>
-                                <a href="/about">About</a>
-                                <a href="/administration">Administration</a>
-                                <a href="/reports">Reports</a>
-                                <a href="/logout">Logout</a>
+                                <a href="/contact" class="nav">Contact</a>
+                                <a href="/about" class="nav">About</a>
+                                <a href="/administration" class="nav admin-link">Administration</a>
+                                <a href="/reports" class="nav admin-link2">Reports</a>
+                                <a href="/logout" class="nav">Logout</a>
                             </nav>
                     </div>  
+                    <div class="admin-option">
+                        <a href="/add_user" class="link nav"><div class="ad-link">Add User</div></a>
+                        <a href="/add_bug" class="link nav"><div class="ad-link">Add Bug</div></a>
+                        <a href="/add_project" class="link top nav"><div class="ad-link">Add Project</div></a>
+                    </div>
+                    <div class="admin-option2">
+                        <a href="/user_report" class="link"><div class="ad-link">User Reports</div></a>
+                        <a href="/bug_report" class="link"><div class="ad-link">Bug Reports</div></a>
+                        <a href="/project_report" class="link"><div class="ad-link">Project Reports</div></a>
+                    </div>
                     {% if user %}
                     <h1 class="greeting">Welcome, {{user.name}}</h1>
                     {% endif %}
                     <div class="options">
-                        <div class="opt"><a href="/add_project" class="link top">Add Project</a></div>
-                        <div class="opt"><a href="/project_report" class="link">Project Reports</a></div>
-                        <div class="opt"><a href="/add_bug" class="link">Add Bug</a></div>
-                        <div class="opt"><a href="/bug_report" class="link">Bug Reports</a></div>
-                        <div class="opt"><a href="/add_user" class="link">Add User</a></div>
-                        <div class="opt"><a href="/user_report" class="link">User Reports</a></div>
+                        <a href="/add_project" class="link top"><div class="opt op">Add Project</div></a>
+                        <a href="/project_report" class="link"><div class="opt op">Project Reports</div></a>
+                        <a href="/add_bug" class="link"><div class="opt op">Add Bug</div></a>
+                        <a href="/bug_report" class="link"><div class="opt op">Bug Reports</div></a>
+                        <a href="/add_user" class="link"><div class="opt op">Add User</div></a>
+                        <a href="/user_report" class="link"><div class="opt op">User Reports</div></a>
                     </div>
             </div>
             <div class="footer">
@@ -37,3 +48,4 @@
         </div>
     </body>
 </html>
+<script type="text/javascript" src="static/bugz/js/dashboard.js"></script>

@@ -43,6 +43,13 @@ nav a {
     margin-right: 20px;
 }
 
+.newColor {
+    color: #ebc764;
+}
+
+#sub-1, #sub-2 {
+    cursor: pointer;
+}
 /*------------------------------BODY---------------------------------*/
 .c-header {
     color: white;
