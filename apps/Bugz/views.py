@@ -311,3 +311,20 @@ def update_bug_process(request, id):
 
         Bug.objects.filter(id = id).update(name = name, typ = typ, status = status, start_date = start_date, due_date = due_date, description = description, assigned_to = user, project = project)
         return redirect('/bug_report')
+
+def search_project(request):
+    query_search = Project.objects.all()
+    name_contains = request.GET.get('search_project')
+    print(name_contains)
+
+    if name_contains != " " and name_contains is not None:
+        query_search = query_search.filter(title__icontains = name_contains)
+        context = {
+            "queryset": query_search
+        }
+        return render(request, "Bugz/project_results.html", context)
+    else:
+        messages.error(request, "No Results Found")
+        return render(request, "project_results.html")
+
+

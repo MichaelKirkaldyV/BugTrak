@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Project Reports</title>
+        <title>Project Results</title>
         {% load static %}
-        <link rel="stylesheet" type="text/css" href="{% static 'bugz/css/project_report.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'bugz/css/project_results.css' %}">
     </head>
     <body>
         <div class="container">
@@ -20,7 +20,7 @@
                                 <a href="/logout">Logout</a>
                             </nav>
                     </div> 
-                    <h1 class="pro-h1">Project Reports</h1>
+                    <h1 class="pro-h1">Results</h1>
                     <form action="search_project" method="GET" class="s-form">
                         {% csrf_token %}
                         <input type="text" name="search_project" placeholder="search by project title" id="s-project">
@@ -41,16 +41,16 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for project in projects %}
+                                {% for q in queryset %}
                                 <tr class="entries">
-                                    <td>{{project.id}}</td>
-                                    <td>{{project.title}}</td>
-                                    <td>{{project.typ}}</td>
-                                    <td>{{project.manager}}</td>
-                                    <td>{{project.frontend}}</td>
-                                    <td>{{project.backend}}</td>
-                                    <td>{{project.client}}</td>
-                                    <td><a href="/edit_project/{{project.id}}">Edit</a> &nbsp; <a href="/delete_project/{{project.id}}">Delete</a></td>
+                                    <td>{{q.id}}</td>
+                                    <td>{{q.title}}</td>
+                                    <td>{{q.typ}}</td>
+                                    <td>{{q.manager}}</td>
+                                    <td>{{q.frontend}}</td>
+                                    <td>{{q.backend}}</td>
+                                    <td>{{q.client}}</td>
+                                    <td><a href="/edit_project/{{q.id}}">Edit</a> &nbsp; <a href="/delete_project/{{q.id}}">Delete</a></td>
                                 </tr>
                                 {% endfor %}
                             </tbody>
