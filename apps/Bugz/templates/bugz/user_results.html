@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Project Results</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'bugz/css/user_results.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <div class="main-body">
+                    <div class="header">
+                        <a href="/"><h1 class="title">BugTrak</h1></a>
+                            <nav>
+                                <a href="/home">Login</a>
+                                <a href="/contact">Contact</a>
+                                <a href="/about">About</a>
+                                <a href="/dashboard">Dashboard</a>
+                                <a href="/administration">Administration</a>
+                                <a href="/reports">Reports</a>
+                                <a href="/logout">Logout</a>
+                            </nav>
+                    </div> 
+                    <h1 class="pro-h1">Results</h1>
+                    <form action="search_user" method="GET" class="s-form">
+                        {% csrf_token %}
+                        <input type="text" name="search_user" placeholder="search by user name" id="s-project">
+                        <input type="submit" name="submit" id="submit" value="Search">
+                    </form>
+                    <div class="reports">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                    <th>Mobile No.</th>
+                                    <th>Options</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for q in queryset %}
+                                <tr class="entries">
+                                    <td>{{q.id}}</td>
+                                    <td>{{q.name}}</td>
+                                    <td>{{q.username}}</td>
+                                    <td>{{q.u_email}}</td>
+                                    <td>{{q.mobile_no}}</td>
+                                    <td><a href="/edit_user/{{q.id}}">Edit</a> &nbsp; <a href="/delete_user/{{q.id}}">Delete</a></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            <div class="footer">
+                <p>Created by Michael Kirkaldy - 2019</p>
+            </div>
+        </div>
+    </body>
+</html>

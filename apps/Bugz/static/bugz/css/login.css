@@ -47,6 +47,10 @@ nav a {
     cursor: pointer;
 }
 
+.newColor {
+    color: #ebc764;
+}
+
 /*------------------------------BODY---------------------------------*/
 
 .main-body {
@@ -169,7 +173,7 @@ li {
     color: white;
     padding-top: 35px;
     text-align: center;
-    height: 45px;
+    height: 52px;
     width: 100%;
     background-color: black;
     margin-top: 219px;

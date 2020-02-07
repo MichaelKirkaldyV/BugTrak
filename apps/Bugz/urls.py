@@ -31,5 +31,7 @@ urlpatterns = [
     url(r'^update_user_process/(?P<id>\d+)$', views.update_user_process),
     url(r'^update_project_process/(?P<id>\d+)$', views.update_project_process),
     url(r'^search_project$', views.search_project),
+    url(r'^search_user$', views.search_user),
+    url(r'^search_bug$', views.search_bug),
 
 ]

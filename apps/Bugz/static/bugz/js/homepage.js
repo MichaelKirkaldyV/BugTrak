@@ -1,4 +1,4 @@
-
+// Creates a slideshow of headers
 var slideIndex = 0;
 showSlides();
 
@@ -12,11 +12,12 @@ function showSlides() {
   if (slideIndex > slides.length) {slideIndex = 1}
   slides[slideIndex-1].style.display = "block";
   // Change title every 2 seconds
-  setTimeout(showSlides, 2000); 
+  setTimeout(showSlides, 3000); 
 }
 
 //------------------JQUERY------------------------------------//
 
+// Creates yellow hue over links in the navbar
 $(document).ready(function(){
     $("a").hover(function(){
         $(this).addClass("newColor");

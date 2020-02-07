@@ -100,6 +100,35 @@ table, th, td {
     font-family: cosima;
 }
 
+.s-form {
+    margin-bottom: 15px;
+    margin-left: 996px;
+}
+
+#submit {
+    background-color: green;
+    border: none;
+    border-radius: 10px;
+    width: 80px;
+    height: 40px;
+    font-family: cosima;
+    text-align: center;
+    color: white;
+    margin-left: 10px;
+}
+
+#s-project {
+    border: none;
+    border-radius: 10px;
+    width: 410px;
+    height: 40px;
+    font-family: cosima;
+    text-align: left;
+    color: black;
+    padding-left: 10px;
+}
+
+
 /*---------------------------------------FOOTER------------------------*/
 
 .footer {

@@ -21,6 +21,11 @@
                             </nav>
                     </div> 
                     <h1 class="pro-h1">Bug Reports</h1>
+                    <form action="search_bug" method="GET" class="s-form">
+                        {% csrf_token %}
+                        <input type="text" name="search_bug" placeholder="search by bug name" id="s-project">
+                        <input type="submit" name="submit" id="submit" value="Search">
+                    </form>
                     <div class="reports">
                         <table>
                             <thead>

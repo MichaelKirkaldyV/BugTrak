@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bug Results</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'bugz/css/bug_results.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <div class="main-body">
+                    <div class="header">
+                        <a href="/"><h1 class="title">BugTrak</h1></a>
+                            <nav>
+                                <a href="/home">Login</a>
+                                <a href="/contact">Contact</a>
+                                <a href="/about">About</a>
+                                <a href="/dashboard">Dashboard</a>
+                                <a href="/administration">Administration</a>
+                                <a href="/reports">Reports</a>
+                                <a href="/logout">Logout</a>
+                            </nav>
+                    </div> 
+                    <h1 class="pro-h1">Results</h1>
+                    <form action="search_bug" method="GET" class="s-form">
+                        {% csrf_token %}
+                        <input type="text" name="search_bug" placeholder="search by bug name" id="s-project">
+                        <input type="submit" name="submit" id="submit" value="Search">
+                    </form>
+                    <div class="reports">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Status</th>
+                                    <th>Start Date</th>
+                                    <th>Due Date</th>
+                                    <th>Assigned To</th>
+                                    <th>Options</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for q in queryset %}
+                                <tr class="entries">
+                                    <td>{{q.id}}</td>
+                                    <td>{{q.name}}</td>
+                                    <td>{{q.typ}}</td>
+                                    <td>{{q.status}}</td>
+                                    <td>{{q.start_date}}</td>
+                                    <td>{{q.due_date}}</td>
+                                    <td>{{q.assigned_to.name}}</td>
+                                    <td><a href="/edit_bug/{{q.id}}">Edit</a> &nbsp; <a href="/delete_bug/{{q.id}}">Delete</a></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            <div class="footer">
+                <p>Created by Michael Kirkaldy - 2019</p>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,142 @@
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+@font-face {
+    font-family: cosima;
+    src: url('../fonts/Cosima-DemoBold.otf');
+  }
+
+.container{
+    height: 100%;
+    width: 100%;
+}
+
+.header {
+    font-family: cosima;
+    height: 70px;
+    width: 100%;
+    background-color: rgba(26, 24, 24, 0.4);
+}
+
+.title {
+    color: white;
+    font-size: 25px;
+    padding: 20px;
+    padding-left: 65px;;
+    display: inline-block;
+}
+
+nav {
+    margin-left: 920px;
+    height: 20px;
+    padding: 20px;
+    display: inline-block;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+/*------------------------------BODY---------------------------------*/
+
+.main-body {
+    background-image: url('../images/red-wallpaper.jpg');
+    background-size: cover;
+    height: 900px;
+    width: 100%;
+    text-align: center;
+}
+
+.pro-h1 {
+    color: white;
+    font-family: cosima;
+    margin-bottom: 50px;
+    margin-top: 70px;
+    margin-right: 1245px;
+    
+}
+
+.reports {
+    background-color: white;
+    height: 500px;
+    width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+}
+
+th {
+    padding-left: 15px;
+    background-color: gray;
+    color: white;
+    text-align: left;
+    width: 145px;
+    height: 50px;
+}
+
+table {
+    margin: auto;
+    padding-top: 50px;
+}
+
+td {
+    text-align: left;
+    padding-left: 10px;
+}
+
+table, th, td {
+    border: 4px white;
+}
+
+.entries {
+    height: 50px;
+    font-family: cosima;
+}
+
+.s-form {
+    margin-bottom: 15px;
+    margin-left: 996px;
+}
+
+#submit {
+    background-color: green;
+    border: none;
+    border-radius: 10px;
+    width: 80px;
+    height: 40px;
+    font-family: cosima;
+    text-align: center;
+    color: white;
+    margin-left: 10px;
+}
+
+#s-project {
+    border: none;
+    border-radius: 10px;
+    width: 410px;
+    height: 40px;
+    font-family: cosima;
+    text-align: left;
+    color: black;
+    padding-left: 10px;
+}
+
+
+/*---------------------------------------FOOTER------------------------*/
+
+.footer {
+    font-family: cosima;
+    color: white;
+    padding-top: 35px;;
+    text-align: center;
+    height: 45px;
+    width: 100%;
+    background-color: black;
+}

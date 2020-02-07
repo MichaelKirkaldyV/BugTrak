@@ -325,6 +325,32 @@ def search_project(request):
         return render(request, "Bugz/project_results.html", context)
     else:
         messages.error(request, "No Results Found")
-        return render(request, "project_results.html")
+        return render(request, "Bugz/project_results.html")
 
+def search_user(request):
+    query_search = User.objects.all()
+    name_contains = request.GET.get('search_user')
+    
+    if name_contains != " " and name_contains is not None:
+        query_search = query_search.filter(name__icontains = name_contains)
+        context = {
+            "queryset": query_search
+        }
+        return render(request, "Bugz/user_results.html", context)
+    else:
+        messages.error(request, "No Results Found")
+        return render(request, "Bugz/user_results.html")
 
+def search_bug(request):
+    query_search = Bug.objects.all()
+    name_contains = request.GET.get('search_bug')
+    
+    if name_contains != " " and name_contains is not None:
+        query_search = query_search.filter(name__icontains = name_contains)
+        context = {
+            "queryset": query_search
+        }
+        return render(request, "Bugz/bug_results.html", context)
+    else:
+        messages.error(request, "No Results Found")
+        return render(request, "Bugz/bug_results.html")
