@@ -51,6 +51,7 @@ nav a {
     width: 162px;
     font-family: cosima;
     color: white;
+    
 }
 
 .admin-option2 {
@@ -66,8 +67,19 @@ nav a {
     background-color: rgba(26, 24, 24, 0.4);
     height: 35px;
     padding-top: 15px;
-    
+    text-decoration: none;    
 }
+
+a.link {
+    color: white;
+    font-family: cosima;
+    text-decoration: none;
+}
+
+.newColor {
+    color: #ebc764;
+}
+
 
 /*------------------------------BODY---------------------------------*/
 
