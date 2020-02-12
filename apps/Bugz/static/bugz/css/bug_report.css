@@ -129,6 +129,43 @@ table, th, td {
 }
 
 
+.admin-option {
+    position: absolute;
+    left: 1505px;
+    height: 125px;
+    width: 162px;
+    font-family: cosima;
+    color: white;
+    
+}
+
+.admin-option2 {
+    position: absolute;
+    left: 1675px;
+    height: 125px;
+    width: 147px;
+    font-family: cosima;
+    color: white;
+}
+
+.ad-link {
+    background-color: rgba(26, 24, 24, 0.4);
+    height: 35px;
+    padding-top: 15px;
+    text-decoration: none;    
+}
+
+a.link {
+    color: white;
+    font-family: cosima;
+    text-decoration: none;
+}
+
+.newColor {
+    color: #ebc764;
+}
+
+
 /*---------------------------------------FOOTER------------------------*/
 
 .footer {
