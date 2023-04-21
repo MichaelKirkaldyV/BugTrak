@@ -10,6 +10,6 @@ pycparser==2.19
 pylint==2.4.4
 pytz==2019.3
 six==1.13.0
-sqlparse==0.3.0
+sqlparse==0.4.4
 virtualenv==16.7.8
 wrapt==1.11.2
